@@ -1,11 +1,14 @@
 pragma solidity >=0.4.22 <0.6.0;
 
 
-contract PlasticCoin{
-    string public name = "PlasticCoin";
+contract PlastiCoin{
+    string public name = "PlastiCoin";
     string public symbol = "PCN";
-    string public standard = "PlasticCoin v0.1";
+    string public standard = "PlastiCoin v0.1";
     uint256 public totalSupply; //State variable
+
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
 
     event Transfer(
         address _from,
@@ -19,8 +22,6 @@ contract PlasticCoin{
         uint256 _value
     );
 
-    mapping(address => uint256) public balanceOf;
-    mapping(address => mapping(address => uint256)) public allowance;
 
     constructor () public {
         totalSupply = 1000000000;
